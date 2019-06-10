@@ -1,0 +1,80 @@
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+ html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+
+/* body {
+  margin: 0px;
+  color: #244751;
+  background-color: #eee;
+  font-family: 'Roboto Condensed', sans-serif;
+} */
+
+
+/* <main class="container">
+        <section class="new-tweet">
+            <h2>Compose Tweet</h2>
+            <form method="POST" action="/tweets/">
+              <textarea name="text" placeholder="What are you humming about?"></textarea>
+              <input type="submit" value="Tweet">
+              <span class="counter">140</span>
+            </form>
+        </section>
+</main> */
+
+
+
+main.container .new-tweet {
+  /* position: relative; */
+  border-radius: 15px;
+  background: #D3D3D3;
+  padding: 20px;
+  margin: 0 2em 0 2em;
+}
+
+main.container .new-tweet h2 {
+  padding-bottom: 5px;
+  border-bottom: 2px solid black;
+}
+
+main.container .new-tweet textarea {
+  position: relative;
+  margin: 2px 0 10px 0;
+  width: 100%;
+  padding: 0.2em 0.2em 0.2em 0.2em;
+  display: block;
+}
+
+main.container .new-tweet input {
+  position: relative;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+main.container .new-tweet span {
+  float: right;
+}
+
+
+/* 
+main.new-tweet {
+  padding: 100px 20px 20px 30px;
+  width: 450px;
+  margin: auto;
+  background-color: #ffffff;
+} */
+
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
