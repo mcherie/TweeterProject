@@ -20,7 +20,7 @@ html {
 main article.tweet {
 
   position: relative;
-  border-radius: 15px;
+  border-radius: 10px;
   background: #ffffff;
   margin: 0 2em 2em 2em;
   border: 1px solid black;
@@ -28,7 +28,7 @@ main article.tweet {
 
 main article header {
   position: relative;
-  border-radius: 15px 15px 0 0;
+  border-radius: 10px 10px 0 0;
   height: 60px;
   width: 100%;
   background-color: rgb(243, 240, 240);
@@ -48,10 +48,13 @@ main article header h3.accountOwner {
   float: left;
 }
 
+main article header p.reply-to {
+  float: right;
+  margin-right: 1em;
+}
+
 main article p.tweetBody {
   position: relative;
-  /* margin: 10px 10px 10px 10px; */
-  /* width: 100%; */
   padding: 1em 1em 1em 1em;
   display: block;
 }
