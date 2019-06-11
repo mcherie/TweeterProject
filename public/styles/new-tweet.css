@@ -31,7 +31,7 @@
               <span class="counter">140</span>
             </form>
         </section>
-</main> */
+</main> */  
 
 
 
@@ -40,7 +40,7 @@ main.container .new-tweet {
   border-radius: 15px;
   background: #D3D3D3;
   padding: 20px;
-  margin: 0 2em 0 2em;
+  margin: 0 2em 2em 2em;
 }
 
 main.container .new-tweet h2 {

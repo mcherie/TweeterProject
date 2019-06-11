@@ -24,14 +24,22 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
+
+    <!-- App JS Char Counter -->
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
+    <!-- new-tweet - App CSS - new-tweet -->
+    <link rel="stylesheet" href="/styles/tweet-container.css" type="text/css"  />
+
+
   </head>
+ 
 
 
 
 
 
 
-  
   <body>
 
     <!-- Top nav bar (fixed) -->
@@ -42,6 +50,7 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+
         <section class="new-tweet">
             <h2>Compose Tweet</h2>
             <form method="POST" action="/tweets/">
@@ -50,7 +59,30 @@
               <span class="counter">140</span>
             </form>
         </section>
+
+        <article class="tweet">
+           <header>
+              <img class="avatar" src="https://s3.amazonaws.com/artistsnclients/k63/samples/pju_800.JPG">
+              <h3 class="accountOwner"> Cher's Tweeter </h3>
+           </header>
+            <p class="tweetBody"> This is an older tweet. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. </p>
+           <footer>
+              <p class="daysPast"> 10 days ago </p>
+           </footer>
+            
+        </article>
+
+
+
     </main>
+
+
+
+
+
+
+
+
 
   </body>
 </html>
