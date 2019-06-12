@@ -49,11 +49,11 @@ const data = [{
 function renderTweets(tweets) {
   for (const tweet of tweets) {
     const $incomingTweet = createTweetElement(tweet)
-    $('#tweets-container').append($incomingTweet);
+    $('#tweets-container').prepend($incomingTweet);
   }
 }
 
-function createTweetElement(tweet) { 
+function createTweetElement(tweet) {
   // Base this from HTML template, better to have it side-by-side. Create everything first, from top to bottom, LINE BY LINE. Then Append everything for each section (the last thing to append are the main/major headings under this secction).  Then add data to elements to make it dynamic.
 
 
@@ -112,6 +112,68 @@ function createTweetElement(tweet) {
   return $tweet;
 }
 
-$(document).ready(function() {
+
+$(document).ready(function () {
   renderTweets(data);
+
+  // -----------------------------Below is the POST------------------------------------
+
+  var $button = $('#send-tweet');
+
+  $button.on('submit', function (event) {
+    event.preventDefault();
+    console.log('Tweet button clicked, now it SHOULD make an ajax call to post this tweet...');
+    // this is to serialize(don't forget it's a function) to turn the form "data" into a query string
+    const $newUserTweet = $(this).serialize();
+    // send ajax request with url, methd, and the data you want processed
+    $.ajax({
+        url: '/tweets/',
+        method: 'POST',
+        data: $newUserTweet, // the new serialized data
+      })
+      .then(function () {
+        console.log("This space is where I code what I want to do here, which in this case is load tweets (that has the renderTweets function to process the data)")
+        loadTweets()
+      });
+  });
+
+  // ------------------------------Below is the GET-------------------------------------
+
+  var loadTweets = function () {
+    // Send the ajax request
+    $.ajax('/tweets', {
+      method: 'GET',
+      success: function (data) {
+        // console.log('Success', data);
+        renderTweets(data);
+      },
+      // success: renderTweets(data); this doesn't work since there's only one function?
+    })
+  }
+
 });
+
+
+
+
+  // $('#send-tweet').on('submit', function (event) {
+  //   event.preventDefault();
+  //   const $userTweet = $(this).serialize();
+
+  //   $.ajax({
+  //     type: 'POST',
+  //     url: '/tweets/',
+  //     data: $userTweet,
+  //     // Callback from jQuery, that allows you to manipulate the data before sending the request
+  //     beforeSend: function () {
+  //       console.log('beforeSend');
+  //     },
+  //     success: function () {
+  //       console.log('Success');
+  //     },
+  //     error: function () {
+  //       console.log('Error');
+  //     }
+  //   });
+
+  // });

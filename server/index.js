@@ -34,7 +34,8 @@ app.use("/tweets", tweetsRoutes);
 
 
 app.post('/tweets/', (req, res) => {
-  
+  console.log(req.body.text);
+  res.status(201);
 });
 
 
