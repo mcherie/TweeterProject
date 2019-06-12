@@ -8,14 +8,7 @@ html {
   box-sizing: inherit;
 }
 
-/* <article class="tweet">
-    <header>
-        <img class="avatar"src="https://s3.amazonaws.com/artistsnclients/k63/samples/pju_800.JPG">
-    </header>
-            <textarea placeholder="This is an older tweet"></textarea>
-    <footer>
-    </footer>
-</article> */
+
 
 main article.tweet {
 
@@ -24,6 +17,11 @@ main article.tweet {
   background: #ffffff;
   margin: 0 2em 2em 2em;
   border: 1px solid black;
+  opacity: 0.6;
+}
+
+main article:hover {
+  opacity: 1;
 }
 
 main article header {
@@ -38,7 +36,7 @@ main article header {
 
 main article header .avatar {
   margin: 0 0 0 1em;
-  width: 20%; 
+  width: 18%; 
   height: 100%;
   float: left;
   border-radius: 30px 30px 30px 30px;
@@ -61,13 +59,44 @@ main article p.tweetBody {
 
 main article footer {
   border-top: 1px solid black;
+  padding: 1em 1em 1em 1em;
+
 }
 
-main article footer .daysPast {
-  margin: 10px 10px 10px 10px;
+main article footer .flag {
+  float: right;
+  height: 20px;
+  width: 20px;
+  opacity: 0;
 }
 
+main article footer .retweet {
+  float: right;
+  height: 30px;
+  width: 30px;
+  opacity: 0;
+}
 
+main article footer .love {
+  float: right;
+  height: 30px;
+  width: 40px;
+  opacity: 0;
+}
+
+main article:hover .flag {
+  opacity: 1;
+}
+main article:hover .retweet {
+  opacity: 1;
+}
+main article:hover .love {
+  opacity: 1;
+}
+
+/* main article footer .symbol:hover {
+  visibility: visible;
+} */
 
 
 /* 
