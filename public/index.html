@@ -1,66 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Meta Information -->
-    <title>Tweeter - Home Page</title>
 
-    <!-- External CSS -->
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+<head>
+  <!-- Meta Information -->
+  <title>Tweeter - Home Page</title>
 
-    <!-- Roboto Condensed 300 & 700 Font -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i&display=swap" rel="stylesheet">
+  <!-- External CSS -->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
 
-    <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css"  />
+  <!-- Roboto Condensed 300 & 700 Font -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i&display=swap" rel="stylesheet">
 
-    <!-- nav - App CSS - nav -->
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css"  />
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-    <!-- new-tweet - App CSS - new-tweet -->
-    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css"  />
+  <!-- nav - App CSS - nav -->
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
-    <!-- External JS -->
-    <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
+  <!-- new-tweet - App CSS - new-tweet -->
+  <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
-    <!-- App JS -->
-    <script type="text/javascript" src="/scripts/app.js"></script>
+  <!-- External JS -->
+  <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
-    <!-- App JS Char Counter -->
-    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+  <!-- App JS -->
+  <script type="text/javascript" src="/scripts/app.js"></script>
 
-    <!-- new-tweet - App CSS - new-tweet -->
-    <link rel="stylesheet" href="/styles/tweet-container.css" type="text/css"  />
+  <!-- App JS Char Counter -->
+  <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
-
-  </head>
- 
+  <!-- new-tweet - App CSS - new-tweet -->
+  <link rel="stylesheet" href="/styles/tweet-container.css" type="text/css" />
 
 
+</head>
 
+<body>
 
+  <!-- Top nav bar (fixed) -->
+  <nav id="nav-bar">
+    <img class="logo" src="/images/bird.png">
+    <span class="header">Tweeter</span>
+  </nav>
 
+  <!-- Page-specific (main) content here -->
+  <main class="container">
 
-  <body>
+    <section class="new-tweet">
+      <h2>Compose Tweet</h2>
+      <form method="POST" action="/tweets/">
+        <textarea name="text" placeholder="What are you humming about?"></textarea>
+        <input type="submit" value="Tweet">
+        <span class="counter">140</span>
+      </form>
+    </section>
 
-    <!-- Top nav bar (fixed) -->
-    <nav id="nav-bar">
-      <img class="logo" src="/images/bird.png">
-      <span class="header">Tweeter</span>
-    </nav>
-
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-
-        <section class="new-tweet">
-            <h2>Compose Tweet</h2>
-            <form method="POST" action="/tweets/">
-              <textarea name="text" placeholder="What are you humming about?"></textarea>
-              <input type="submit" value="Tweet">
-              <span class="counter">140</span>
-            </form>
-        </section>
-
-        <article class="tweet">
+    <section id="tweets-container">
+    <!-- <article class="tweet">
            <header>
               <img class="avatar" src="https://s3.amazonaws.com/artistsnclients/k63/samples/pju_800.JPG">
               <h3 class="accountOwner"> Cher's Tweeter </h3>
@@ -68,30 +64,14 @@
            </header>
             <p class="tweetBody"> This is an older tweet. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. </p>
            <footer>
-              <!-- <p class="daysPast"> 10 days ago </p> -->
-              10 hours ago
-
-             
+              <p class="created"> 10 hours ago </p>
               <img class="flag" src="https://images.vexels.com/media/users/3/130335/isolated/preview/8895fce21acb5e4046753456aa05328f-flat-flag-icon-by-vexels.png">
               <img class="retweet" src="https://cdn0.iconfinder.com/data/icons/twitter-ui-flat/48/Twitter_UI-13-512.png">
               <img class="love" src="https://cdn.shopify.com/s/files/1/1573/2047/products/product-image-111632822_1024x1024.jpg?v=1527269063">
-           
-              
            </footer>
-            
-        </article>
+        </article> -->
+      </section>
+  </main>
+</body>
 
-
-
-    </main>
-
-
-
-
-
-
-
-
-
-  </body>
 </html>
