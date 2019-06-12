@@ -15,9 +15,8 @@ html {
   width: 100%;
   background-color: #00a087;
   color: #e8fdff;
-  padding: 0 2em 2em 0;
+  padding: 0 2em 2em 1em;
   z-index: 100;
- 
 }
 
 #nav-bar .logo {
@@ -32,11 +31,24 @@ html {
   line-height: 75px;
   float: left;
   vertical-align: middle;
-
 }
 
+#nav-bar .compose {
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid black;
+  margin: 0.2em;
+  font-size: 1.5em;
+  /* font-color:  */
+  line-height: 20px;
+  float: right;
+  padding: 1em 1em 1em 1em;
+  opacity: 0.9;
+}
 
-
+#nav-bar .compose:hover {
+  opacity: 1;
+}
 /* body {
   height: 80px;
   width: 100%;

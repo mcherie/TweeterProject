@@ -41,6 +41,7 @@ main.container .new-tweet {
   background: #D3D3D3;
   padding: 20px;
   margin: 0 2em 2em 2em;
+  display: none;
 }
 
 main.container .new-tweet h2 {
@@ -66,6 +67,25 @@ main.container .new-tweet span {
   float: right;
 }
 
+/* <span class="textEmpty"> Text field can not be empty </span> */
+
+main.container .new-tweet .textEmpty {
+  position: relative;
+  color: red;
+  font: bold;
+  margin: .5px;
+  padding: 0 5px 5px 5px;
+  display: none;
+}
+
+main.container .new-tweet .tweetExceed {
+  position: relative;
+  color: red;
+  font: bold;
+  margin: .5px;
+  padding: 0 5px 5px 5px;
+  display: none;
+}
 
 /* 
 main.new-tweet {

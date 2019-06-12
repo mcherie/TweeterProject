@@ -118,7 +118,7 @@ $(document).ready(function () {
 
   // -----------------------------Below is the POST------------------------------------
 
-  var $button = $('#send-tweet');
+  const $button = $('#send-tweet');
 
 
   $button.on('submit', function (event) {
@@ -130,26 +130,26 @@ $(document).ready(function () {
 
     // if statement that says if textarea field is empty, or more than 140 chars, do not trigger an event
     if (!$('#send-tweet textarea').val()) {
-        window.alert("Tweet area empty");
-    } else if ($('.counter').text() < 0 ) {
-        alert("Tweet must not exceed 140 characters")
+      window.alert("Tweet area empty");
+    } else if ($('.counter').text() < 0) {
+      alert("Tweet must not exceed 140 characters")
     } else {
 
-    console.log('Tweet button clicked, now it SHOULD make an ajax call to post this tweet...');
-    
-    // send ajax request with url, methd, and the data you want processed
-    $.ajax({
-        url: '/tweets/',
-        method: 'POST',
-        data: $newUserTweet, // the new serialized data
-      })
-      .then(function () {
-        console.log("This space is where I code what I want to do here, which in this case is load tweets (that has the renderTweets function to process the data)")
+      console.log('Tweet button clicked, now it SHOULD make an ajax call to post this tweet...');
 
-        loadTweets()
-      });
+      // send ajax request with url, methd, and the data you want processed
+      $.ajax({
+          url: '/tweets/',
+          method: 'POST',
+          data: $newUserTweet, // the new serialized data
+        })
+        .then(function () {
+          console.log("This space is where I code what I want to do here, which in this case is load tweets (that has the renderTweets function to process the data)")
 
-  }
+          loadTweets()
+        });
+
+    }
   });
 
   // ------------------------------Below is the GET-------------------------------------
@@ -165,30 +165,37 @@ $(document).ready(function () {
       // success: renderTweets(data); this doesn't work since there's only one function?
     })
   }
+  // ------------------below is the toggle to hide and show new tweet box ---------
+
+  $('.compose').click(function () {
+    $('.new-tweet').toggle();
+    $('textarea').focus();
+  });
+// --------------------------------------------------------------------------------
 
 });
 
 
 
 
-  // $('#send-tweet').on('submit', function (event) {
-  //   event.preventDefault();
-  //   const $userTweet = $(this).serialize();
+// $('#send-tweet').on('submit', function (event) {
+//   event.preventDefault();
+//   const $userTweet = $(this).serialize();
 
-  //   $.ajax({
-  //     type: 'POST',
-  //     url: '/tweets/',
-  //     data: $userTweet,
-  //     // Callback from jQuery, that allows you to manipulate the data before sending the request
-  //     beforeSend: function () {
-  //       console.log('beforeSend');
-  //     },
-  //     success: function () {
-  //       console.log('Success');
-  //     },
-  //     error: function () {
-  //       console.log('Error');
-  //     }
-  //   });
+//   $.ajax({
+//     type: 'POST',
+//     url: '/tweets/',
+//     data: $userTweet,
+//     // Callback from jQuery, that allows you to manipulate the data before sending the request
+//     beforeSend: function () {
+//       console.log('beforeSend');
+//     },
+//     success: function () {
+//       console.log('Success');
+//     },
+//     error: function () {
+//       console.log('Error');
+//     }
+//   });
 
-  // });
+// });
