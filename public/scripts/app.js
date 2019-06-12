@@ -120,11 +120,23 @@ $(document).ready(function () {
 
   var $button = $('#send-tweet');
 
+
   $button.on('submit', function (event) {
     event.preventDefault();
-    console.log('Tweet button clicked, now it SHOULD make an ajax call to post this tweet...');
     // this is to serialize(don't forget it's a function) to turn the form "data" into a query string
     const $newUserTweet = $(this).serialize();
+
+    console.log("This is the counter.text", $('.counter').text());
+
+    // if statement that says if textarea field is empty, or more than 140 chars, do not trigger an event
+    if (!$('#send-tweet textarea').val()) {
+        window.alert("Tweet area empty");
+    } else if ($('.counter').text() < 0 ) {
+        alert("Tweet must not exceed 140 characters")
+    } else {
+
+    console.log('Tweet button clicked, now it SHOULD make an ajax call to post this tweet...');
+    
     // send ajax request with url, methd, and the data you want processed
     $.ajax({
         url: '/tweets/',
@@ -133,8 +145,11 @@ $(document).ready(function () {
       })
       .then(function () {
         console.log("This space is where I code what I want to do here, which in this case is load tweets (that has the renderTweets function to process the data)")
+
         loadTweets()
       });
+
+  }
   });
 
   // ------------------------------Below is the GET-------------------------------------
