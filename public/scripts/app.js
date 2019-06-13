@@ -124,13 +124,11 @@ $(document).ready(function () {
   $button.on('submit', function (event) {
     event.preventDefault();
 
-    
     // this is to serialize(don't forget it's a function) to turn the form "data" into a query string
     const $newUserTweet = $(this).serialize();
 
     console.log("This is the counter.text", $('.counter').text());
     
-
     // if statement that says if textarea field is empty, or more than 140 chars, do not trigger an event
     if (!$('#send-tweet textarea').val()) {
       // window.alert("Tweet area empty");
