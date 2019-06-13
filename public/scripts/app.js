@@ -146,7 +146,6 @@ $(document).ready(function () {
 
   $button.on('submit', function (event) {
     event.preventDefault();
-
     // this is to serialize(don't forget it's a function) to turn the form "data" into a query string
     const $newUserTweet = $(this).serialize();
 
