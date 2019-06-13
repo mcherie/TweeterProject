@@ -47,15 +47,18 @@ const data = [{
 ];
 
 function renderTweets(tweets) {
-  for (const tweet of tweets) {
-    const $incomingTweet = createTweetElement(tweet)
-    $('#tweets-container').prepend($incomingTweet);
+for (const tweet of tweets) {
+  // const latestTweet = tweets.length-1;
+  // const $incomingTweet = createTweetElement(tweets[latestTweet])
+  const $incomingTweet = createTweetElement(tweet)
+  $('#tweets-container').prepend($incomingTweet);
+    // $('#tweets-container').prepend($tweet);
   }
 }
 
 function createTweetElement(tweet) {
   // Base this from HTML template, better to have it side-by-side. Create everything first, from top to bottom, LINE BY LINE. Then Append everything for each section (the last thing to append are the main/major headings under this secction).  Then add data to elements to make it dynamic.
-
+console.log("The tweet is: ", tweet)
 
   // Create Elements
   const $tweet = $('<article>').addClass('tweet');
@@ -91,13 +94,18 @@ function createTweetElement(tweet) {
   const $footerLike = $('<img>').addClass('love')
 
   // 3. Add data to elements
-  $footerCreated.text(tweet.created_at);
+  let tweetCreated = tweet.created_at;
+  let currentTime = Math.floor(Date.now());
+  let daysElapsed = Math.floor((currentTime - tweetCreated) / (1000*60*60*24));
+  $footerCreated.text([daysElapsed]);
+  // $footerCreated.text(tweet.created_at);
   $footerFlag.attr('src', "https://images.vexels.com/media/users/3/130335/isolated/preview/8895fce21acb5e4046753456aa05328f-flat-flag-icon-by-vexels.png");
   $footerRetweet.attr('src', "https://cdn0.iconfinder.com/data/icons/twitter-ui-flat/48/Twitter_UI-13-512.png");
   $footerLike.attr('src', "https://cdn.shopify.com/s/files/1/1573/2047/products/product-image-111632822_1024x1024.jpg?v=1527269063");
 
 
   // 2. Append Elements
+  // $footer.append(daysElapsed)
   $footer.append($footerCreated)
   $footer.append($footerFlag)
   $footer.append($footerRetweet)
@@ -162,16 +170,19 @@ $(document).ready(function () {
     $.ajax('/tweets', {
       method: 'GET',
       success: function (data) {
+
         // console.log('Success', data);
         renderTweets(data);
+        $('textarea').val('');
+        let count = 140
+        $('.counter').text(count);
       },
-      // success: renderTweets(data); this doesn't work since there's only one function?
     })
   }
   // ------------------below is the toggle to hide and show new tweet box ---------
 
   $('.compose').click(function () {
-    $('.new-tweet').toggle();
+    $('.new-tweet').slideToggle();
     $('textarea').focus();
   });
 // --------------------------------------------------------------------------------
