@@ -159,7 +159,7 @@ $(document).ready(function () {
 
   // ------------------------------Below is the GET-------------------------------------
 
-  var loadTweets = function () {
+  let loadTweets = function () {
     // Send the ajax request
     $.ajax('/tweets', {
       method: 'GET',
