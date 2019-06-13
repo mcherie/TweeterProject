@@ -48,11 +48,8 @@ const data = [{
 
 function renderTweets(tweets) {
 for (const tweet of tweets) {
-  // const latestTweet = tweets.length-1;
-  // const $incomingTweet = createTweetElement(tweets[latestTweet])
   const $incomingTweet = createTweetElement(tweet)
   $('#tweets-container').prepend($incomingTweet);
-    // $('#tweets-container').prepend($tweet);
   }
 }
 
@@ -96,8 +93,26 @@ console.log("The tweet is: ", tweet)
   // 3. Add data to elements
   let tweetCreated = tweet.created_at;
   let currentTime = Math.floor(Date.now());
-  let daysElapsed = Math.floor((currentTime - tweetCreated) / (1000*60*60*24));
-  $footerCreated.text([daysElapsed]);
+  // let daysElapsed = Math.floor((currentTime - tweetCreated) / (1000*60*60*24));
+  let timeString = ""
+  let timeElapsed = currentTime - tweetCreated;
+  if ( ((timeElapsed / 1000) / 60 ) < 1) {
+    timeString = Math.floor(timeElapsed/1000) + " seconds ago";
+  } else if ( (((timeElapsed / 1000) / 60) /60) < 1) {
+    if (((((timeElapsed / 1000) / 60) /60) < 1) == 1 ) {
+      timeString = Math.floor((timeElapsed / 1000) / 60) + " minute ago";
+    } else
+    timeString = Math.floor((timeElapsed / 1000) / 60) + " minutes ago";
+  } else if ( ((((timeElapsed / 1000) / 60) /60) / 24 ) < 1) { 
+    if (Math.floor(((timeElapsed / 1000) / 60) / 60) == 1) {
+      timeString = Math.floor(((timeElapsed / 1000) / 60) / 60) + " hour ago";
+    } else
+    timeString = Math.floor(((timeElapsed / 1000) / 60) / 60) + " hours ago";
+  } else if ((((((timeElapsed / 1000) / 60) /60) / 24) / 30) > 1) {
+    timeString = Math.floor((((timeElapsed / 1000) / 60) / 60) / 24) + " days ago";
+  }
+
+  $footerCreated.text([timeString]);
   // $footerCreated.text(tweet.created_at);
   $footerFlag.attr('src', "https://images.vexels.com/media/users/3/130335/isolated/preview/8895fce21acb5e4046753456aa05328f-flat-flag-icon-by-vexels.png");
   $footerRetweet.attr('src', "https://cdn0.iconfinder.com/data/icons/twitter-ui-flat/48/Twitter_UI-13-512.png");
@@ -122,7 +137,7 @@ console.log("The tweet is: ", tweet)
 
 
 $(document).ready(function () {
-  renderTweets(data);
+  // renderTweets(data);
 
   // -----------------------------Below is the POST------------------------------------
 
@@ -170,7 +185,6 @@ $(document).ready(function () {
     $.ajax('/tweets', {
       method: 'GET',
       success: function (data) {
-
         // console.log('Success', data);
         renderTweets(data);
         $('textarea').val('');
@@ -179,6 +193,7 @@ $(document).ready(function () {
       },
     })
   }
+  loadTweets();
   // ------------------below is the toggle to hide and show new tweet box ---------
 
   $('.compose').click(function () {
