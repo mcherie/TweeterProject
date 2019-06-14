@@ -1,4 +1,3 @@
-// Fake data taken from tweets.json
 const data = [{
     "user": {
       "name": "Newton",
@@ -47,24 +46,23 @@ const data = [{
 ];
 
 function renderTweets(tweets) {
-for (const tweet of tweets) {
-  const $incomingTweet = createTweetElement(tweet)
-  $('#tweets-container').prepend($incomingTweet);
+  for (const tweet of tweets) {
+    const $incomingTweet = createTweetElement(tweet);
+    $('#tweets-container').prepend($incomingTweet);
   }
 }
 
 function createTweetElement(tweet) {
-  // Base this from HTML template, better to have it side-by-side. Create everything first, from top to bottom, LINE BY LINE. Then Append everything for each section (the last thing to append are the main/major headings under this secction).  Then add data to elements to make it dynamic.
-console.log("The tweet is: ", tweet)
+  // Base this from HTML template, better to have it side-by-side. Create everything first, from top to bottom, LINE BY LINE. Then append everything for each section (the last thing to append are the main/major headings under this secction).  Then add data to elements to make it dynamic.
 
   // Create Elements
   const $tweet = $('<article>').addClass('tweet');
 
   // 1. Create Elements
-  const $header = $('<header>')
-  const $headerAvatar = $('<img>').addClass('avatar')
-  const $headerOwner = $('<h3>').addClass('accountOwner')
-  const $headerHandle = $('<p>').addClass('reply-to')
+  const $header = $('<header>');
+  const $headerAvatar = $('<img>').addClass('avatar');
+  const $headerOwner = $('<h3>').addClass('accountOwner');
+  const $headerHandle = $('<p>').addClass('reply-to');
 
   // 3. Add data to elements
   $headerAvatar.attr('src', tweet.user.avatars.small);
@@ -78,103 +76,93 @@ console.log("The tweet is: ", tweet)
 
 
   // 1. Create Elements
-  const $tweetBody = $('<p>').addClass('tweetBody')
+  const $tweetBody = $('<p>').addClass('tweetBody');
   // 3. Add data to elements
   $tweetBody.text(tweet.content.text);
 
 
   // 1. Create Elements
-  const $footer = $('<footer>')
-  const $footerCreated = $('<span>').addClass('created')
-  const $footerFlag = $('<img>').addClass('flag')
-  const $footerRetweet = $('<img>').addClass('retweet')
-  const $footerLike = $('<img>').addClass('love')
+  const $footer = $('<footer>');
+  const $footerCreated = $('<span>').addClass('created');
+  const $footerFlag = $('<img>').addClass('flag');
+  const $footerRetweet = $('<img>').addClass('retweet');
+  const $footerLike = $('<img>').addClass('love');
 
-  // 3. Add data to elements
+  // Calculate to show time elapsed to show on the tweet
   let tweetCreated = tweet.created_at;
   let currentTime = Math.floor(Date.now());
-  // let daysElapsed = Math.floor((currentTime - tweetCreated) / (1000*60*60*24));
   let timeString = ""
   let timeElapsed = currentTime - tweetCreated;
-  if ( ((timeElapsed / 1000) / 60 ) < 1) {
-    timeString = Math.floor(timeElapsed/1000) + " seconds ago";
-  } else if ( (((timeElapsed / 1000) / 60) /60) < 1) {
-    if (((((timeElapsed / 1000) / 60) /60) < 1) == 1 ) {
+  if (((timeElapsed / 1000) / 60) < 1) {
+    timeString = Math.floor(timeElapsed / 1000) + " seconds ago";
+  } else if ((((timeElapsed / 1000) / 60) / 60) < 1) {
+    if (((((timeElapsed / 1000) / 60) / 60) < 1) == 1) {
       timeString = Math.floor((timeElapsed / 1000) / 60) + " minute ago";
     } else
-    timeString = Math.floor((timeElapsed / 1000) / 60) + " minutes ago";
-  } else if ( ((((timeElapsed / 1000) / 60) /60) / 24 ) < 1) { 
+      timeString = Math.floor((timeElapsed / 1000) / 60) + " minutes ago";
+  } else if (((((timeElapsed / 1000) / 60) / 60) / 24) < 1) {
     if (Math.floor(((timeElapsed / 1000) / 60) / 60) == 1) {
       timeString = Math.floor(((timeElapsed / 1000) / 60) / 60) + " hour ago";
     } else
-    timeString = Math.floor(((timeElapsed / 1000) / 60) / 60) + " hours ago";
-  } else if ((((((timeElapsed / 1000) / 60) /60) / 24) / 30) > 1) {
+      timeString = Math.floor(((timeElapsed / 1000) / 60) / 60) + " hours ago";
+  } else if ((((((timeElapsed / 1000) / 60) / 60) / 24) / 30) > 1) {
     timeString = Math.floor((((timeElapsed / 1000) / 60) / 60) / 24) + " days ago";
   }
 
+  // 3. Add data to elements
   $footerCreated.text([timeString]);
-  // $footerCreated.text(tweet.created_at);
   $footerFlag.attr('src', "https://images.vexels.com/media/users/3/130335/isolated/preview/8895fce21acb5e4046753456aa05328f-flat-flag-icon-by-vexels.png");
   $footerRetweet.attr('src', "https://cdn0.iconfinder.com/data/icons/twitter-ui-flat/48/Twitter_UI-13-512.png");
   $footerLike.attr('src', "https://cdn.shopify.com/s/files/1/1573/2047/products/product-image-111632822_1024x1024.jpg?v=1527269063");
 
 
   // 2. Append Elements
-  // $footer.append(daysElapsed)
-  $footer.append($footerCreated)
-  $footer.append($footerFlag)
-  $footer.append($footerRetweet)
-  $footer.append($footerLike)
+  $footer.append($footerCreated);
+  $footer.append($footerFlag);
+  $footer.append($footerRetweet);
+  $footer.append($footerLike);
 
 
   // 4. Append Elements
-  $tweet.append($header)
-  $tweet.append($tweetBody)
-  $tweet.append($footer)
+  $tweet.append($header);
+  $tweet.append($tweetBody);
+  $tweet.append($footer);
 
   return $tweet;
-}
+};
 
 
 $(document).ready(function () {
-  // renderTweets(data);
 
   // -----------------------------Below is the POST------------------------------------
 
   const $button = $('#send-tweet');
 
-
   $button.on('submit', function (event) {
     event.preventDefault();
-    // this is to serialize(don't forget it's a function) to turn the form "data" into a query string
+
+    // Serialize() to turn the form "data" into a query string
     const $newUserTweet = $(this).serialize();
 
-    console.log("This is the counter.text", $('.counter').text());
-    
-    // if statement that says if textarea field is empty, or more than 140 chars, do not trigger an event
+    // If statements for text empty or tex exceed error messages
     if (!$('#send-tweet textarea').val()) {
-      // window.alert("Tweet area empty");
       $('.textEmpty').slideDown();
     } else if ($('.counter').text() < 0) {
-      // alert("Tweet must not exceed 140 characters")
       $('.tweetExceed').slideDown();
     } else {
 
-      console.log('Tweet button clicked, now it SHOULD make an ajax call to post this tweet...');
-
-      // send ajax request with url, methd, and the data you want processed
+      // If criteria is met, send Ajax request with url, methd, and the data you want processed
       $.ajax({
           url: '/tweets/',
           method: 'POST',
           data: $newUserTweet, // the new serialized data
         })
         .then(function () {
-          console.log("This space is where I code what I want to do here, which in this case is load tweets (that has the renderTweets function to process the data)")
-
           loadTweets()
         });
 
     }
+
   });
 
   // ------------------------------Below is the GET-------------------------------------
@@ -184,56 +172,28 @@ $(document).ready(function () {
     $.ajax('/tweets', {
       method: 'GET',
       success: function (data) {
-        // console.log('Success', data);
+        // Now render the tweets with the new tweet, clear the textfield area, and reset the character count
         renderTweets(data);
         $('textarea').val('');
-        let count = 140
+        let count = 140;
         $('.counter').text(count);
       },
     })
   }
   loadTweets();
+
   // ------------------below is the toggle to hide and show new tweet box ---------
 
   $('.compose').click(function () {
     $('.new-tweet').slideToggle();
     $('textarea').focus();
   });
-// --------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------
   $('textarea').click(function () {
     $('.textEmpty').slideUp();
     $('.tweetExceed').slideUp();
-  })  
-// ---------------------------------------------------------------------------------
-
-
-
-
+  });
+  // ---------------------------------------------------------------------------------
 
 
 });
-
-
-
-
-// $('#send-tweet').on('submit', function (event) {
-//   event.preventDefault();
-//   const $userTweet = $(this).serialize();
-
-//   $.ajax({
-//     type: 'POST',
-//     url: '/tweets/',
-//     data: $userTweet,
-//     // Callback from jQuery, that allows you to manipulate the data before sending the request
-//     beforeSend: function () {
-//       console.log('beforeSend');
-//     },
-//     success: function () {
-//       console.log('Success');
-//     },
-//     error: function () {
-//       console.log('Error');
-//     }
-//   });
-
-// });

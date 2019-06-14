@@ -10,33 +10,7 @@
   box-sizing: inherit;
 }
 
-/*
- * Global layout stuff
- */
-
-/* body {
-  margin: 0px;
-  color: #244751;
-  background-color: #eee;
-  font-family: 'Roboto Condensed', sans-serif;
-} */
-
-
-/* <main class="container">
-        <section class="new-tweet">
-            <h2>Compose Tweet</h2>
-            <form method="POST" action="/tweets/">
-              <textarea name="text" placeholder="What are you humming about?"></textarea>
-              <input type="submit" value="Tweet">
-              <span class="counter">140</span>
-            </form>
-        </section>
-</main> */  
-
-
-
 main.container .new-tweet {
-  /* position: relative; */
   border-radius: 15px;
   background: #D3D3D3;
   padding: 20px;
@@ -67,8 +41,6 @@ main.container .new-tweet span {
   float: right;
 }
 
-/* <span class="textEmpty"> Text field can not be empty </span> */
-
 main.container .new-tweet .textEmpty {
   position: relative;
   color: red;
@@ -86,15 +58,3 @@ main.container .new-tweet .tweetExceed {
   padding: 0 5px 15px 5px;
   display: none;
 }
-
-/* 
-main.new-tweet {
-  padding: 100px 20px 20px 30px;
-  width: 450px;
-  margin: auto;
-  background-color: #ffffff;
-} */
-
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */

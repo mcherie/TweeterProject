@@ -21,10 +21,10 @@ Things this Tweeter can do:
 
 
 
-!["Screenshot of URLs page"]()
-!["Screenshot of URLs page"]()
-!["Screenshot of URLs page"]()
-!["Screenshot of URLs page"]()
+!["Screenshot of URLs page"](https://github.com/mcherie/TweeterProject/blob/master/public/images/Screen%20Shot%202019-06-13%20at%207.28.53%20PM.png)
+!["Screenshot of URLs page"](https://github.com/mcherie/TweeterProject/blob/master/public/images/Screen%20Shot%202019-06-13%20at%207.30.48%20PM.png)
+<!-- !["Screenshot of URLs page"]()
+!["Screenshot of URLs page"]() -->
 
 
 ## Getting Started

@@ -5,10 +5,6 @@ html {
   box-sizing: inherit;
 }
 
-/*
- * Global layout stuff
- */
-
 #nav-bar {
   position: fixed;
   height: 80px;
@@ -39,7 +35,6 @@ html {
   border: 1px solid black;
   margin: 0.3em;
   font-size: 1.5em;
-  /* font-color:  */
   line-height: 15px;
   float: right;
   padding: 1em 1em 1em 1em;
@@ -49,20 +44,3 @@ html {
 #nav-bar .compose:hover {
   opacity: 1;
 }
-/* body {
-  height: 80px;
-  width: 100%;
-  background-color: #00a087;
-  color: #e8fdff;
-  padding: 0 2em 2em 0;
-
-
-
-
-
-
-  /* margin: 0;
-  color: #244751;
-  background-color: #00a087;
-  font-family: 'Roboto Condensed', sans-serif; */
-/* }  */

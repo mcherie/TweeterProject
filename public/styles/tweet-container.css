@@ -9,9 +9,7 @@ html {
 }
 
 
-
 main article.tweet {
-
   position: relative;
   border-radius: 10px;
   background: #ffffff;
@@ -32,7 +30,6 @@ main article header {
   background-color: rgb(243, 240, 240);
   color: #375e68;
 }
-
 
 main article header .avatar {
   padding: 0.2em;
@@ -94,32 +91,3 @@ main article:hover .retweet {
 main article:hover .love {
   opacity: 1;
 }
-
-/* main article footer .symbol:hover {
-  visibility: visible;
-} */
-
-
-/* 
-main.container .new-tweet h2 {
-  padding-bottom: 5px;
-  border-bottom: 2px solid black;
-}
-
-main.container .new-tweet textarea {
-  position: relative;
-  margin: 2px 0 10px 0;
-  width: 100%;
-  padding: 0.2em 0.2em 0.2em 0.2em;
-  display: block;
-}
-
-main.container .new-tweet input {
-  position: relative;
-  border-radius: 5px;
-  border: 1px solid black;
-}
-
-main.container .new-tweet span {
-  float: right;
-} */
