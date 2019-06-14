@@ -158,6 +158,7 @@ $(document).ready(function () {
           data: $newUserTweet, // the new serialized data
         })
         .then(function () {
+          $('#tweets-container').empty();
           loadTweets()
         });
 
