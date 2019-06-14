@@ -13,8 +13,8 @@ main article.tweet {
   position: relative;
   border-radius: 10px;
   background: #ffffff;
-  margin: 0 2em 2em 2em;
-  border: 1px solid black;
+  margin: 1em 1em 2em 1em;
+  border: 1.6px solid rgb(143, 68, 130);
   opacity: 0.6;
 }
 

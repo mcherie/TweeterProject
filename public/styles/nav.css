@@ -7,9 +7,9 @@ html {
 
 #nav-bar {
   position: fixed;
-  height: 80px;
+  height: 90px;
   width: 100%;
-  background-color: #00a087;
+  background-color: #cfb4cb;
   color: #e8fdff;
   padding: 0 2em 2em 1em;
   z-index: 100;
@@ -17,28 +17,33 @@ html {
 
 #nav-bar .logo {
   width: 80px; 
-  height: 80px;
+  height: 90px;
   float: left;
 }
 
 #nav-bar .header {
   margin-left: 10px;
+  margin-top: 12px;
   font-size: 2em;
-  line-height: 75px;
+  line-height: 80px;
   float: left;
   vertical-align: middle;
+  /* font-style: italic; */
+  font-family: fantasy;
+  font-size: 300%;
+  font-weight: bold;
 }
 
 #nav-bar .compose {
   position: relative;
   border-radius: 8px;
   border: 1px solid black;
-  margin: 0.3em;
+  margin: 0.5em;
   font-size: 1.5em;
   line-height: 15px;
   float: right;
   padding: 1em 1em 1em 1em;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 #nav-bar .compose:hover {

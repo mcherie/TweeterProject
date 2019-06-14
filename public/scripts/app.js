@@ -64,6 +64,9 @@ function createTweetElement(tweet) {
   const $headerOwner = $('<h3>').addClass('accountOwner');
   const $headerHandle = $('<p>').addClass('reply-to');
 
+  const fullTemplate = "<cher><span>Hello Cher</span></cher>"
+
+
   // 3. Add data to elements
   $headerAvatar.attr('src', tweet.user.avatars.small);
   $headerOwner.text(tweet.user.name);
